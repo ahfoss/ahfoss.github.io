@@ -3,19 +3,20 @@ from collections import defaultdict
 
 # TODO: https://github.com/rpgomez/vomm
 
+dirname = "../gutenberg/"
 basename = "room_with_a_view"
-fname = "./" + basename + ".csv"
+inname = "./" + dirname + basename + ".csv"
 
 # Note you should never start at line 0 (the column names).
-startline = 1000
-endline = startline + 300
+startline = 1
+endline = startline + 200
 
 # interesting settings: 1-1000: most letters, some caps & punctuation.
 #   --- too normal.
 # 1-200, 200-400, 400-600?
 # or perhaps increments of 300?
 
-fid = open(fname, 'r')
+fid = open(inname, 'r')
 
 undesired_chars = ['\x00']
 # Get specified 2grams

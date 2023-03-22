@@ -1,10 +1,11 @@
 from collections import defaultdict
 import csv 
 
+dirname = "../gutenberg/"
 basename = "room_with_a_view"
-fname = "./" + basename + ".txt"
+inname = "./" + dirname + basename + ".txt"
 
-fid = open(fname, 'r')
+fid = open(inname, 'r')
 
 dat = fid.readlines()
 
@@ -38,10 +39,10 @@ rows = [[l1, l2, c] for c,l1,l2 in sorted(zip(count, letter1, letter2),reverse=T
 fields = ['L1','L2','Count']
     
 # name of csv file 
-filename = basename + ".csv"
+outname = dirname + basename + ".csv"
     
 # writing to csv file 
-with open(filename, 'w') as csvfile: 
+with open(outname, 'w') as csvfile: 
     # creating a csv writer object 
     csvwriter = csv.writer(csvfile, escapechar = "\\") 
         
