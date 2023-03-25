@@ -1,20 +1,34 @@
+import sys
 import random
 from collections import defaultdict
 
 # TODO: https://github.com/rpgomez/vomm
 
-dirname = "../gutenberg/"
-basename = "room_with_a_view"
-inname = "./" + dirname + basename + ".csv"
+if len(sys.argv) < 4:
+    raise Exception('Need at least 3 arguments.')
+if sys.argv[1] == 'room':
+    dirname = '../gutenberg/'
+    basename = 'room_with_a_view'
+elif sys.argv[1] == 'cpp':
+    dirname = '../codenet/'
+    basename = 'cpp_raw'
 
 # Note you should never start at line 0 (the column names).
-startline = 1
-endline = startline + 200
+startline = int(sys.argv[2])
+endline = int(sys.argv[3])
+if startline <= 0:
+    raise Exception('Startline must be greater than 0.')
+if startline >= endline:
+    raise Exception('Startline must be strictly less than endline.')
+
+inname = './' + dirname + basename + '.csv'
+
 
 # interesting settings: 1-1000: most letters, some caps & punctuation.
 #   --- too normal.
 # 1-200, 200-400, 400-600?
 # or perhaps increments of 300?
+# Also small increments of 20.
 
 fid = open(inname, 'r')
 
@@ -72,7 +86,7 @@ for i in range(nline):
         except KeyError:
             new = random.choice(letters1)
         # Don't allow words longer than max_word_len.
-        if new == " ":
+        if new == ' ':
             numlet = 0
         else:
             numlet += 1

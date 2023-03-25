@@ -1,8 +1,10 @@
 from collections import defaultdict
 import csv 
 
-dirname = "../gutenberg/"
-basename = "room_with_a_view"
+#dirname = "../gutenberg/"
+#basename = "room_with_a_view"
+dirname = "../codenet/"
+basename = "cpp_raw"
 inname = "./" + dirname + basename + ".txt"
 
 fid = open(inname, 'r')
