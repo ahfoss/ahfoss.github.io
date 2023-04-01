@@ -1,2 +1,2 @@
-devtools::install_github('locklin/VMM')
+#devtools::install_github('locklin/VMM')
 require(VMM)
