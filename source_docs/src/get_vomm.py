@@ -1,3 +1,4 @@
+# TODO: Remove main characters' names, or use multiple books?
 from Vomm import Tree
 
 dirname = "../gutenberg/"
@@ -18,12 +19,18 @@ for i,line in enumerate(dat):
         tree.update(line[indx:(indx+stride)])
 
 #tree.print()
-print(tree.babble('   ', 80, 4, topk = 2))
-print(tree.babble('   ', 80, 4, topk = 2))
-print(tree.babble('   ', 80, 4, topk = 2))
-print(tree.babble('   ', 80, 4, topk = 2))
-print(tree.babble('   ', 80, 4, topk = 2))
-print(tree.babble('   ', 80, 4, topk = 2))
-print(tree.babble('   ', 80, 4, topk = 2))
-print(tree.babble('   ', 80, 4, topk = 2))
+nchar = 80
+context = 6
+# topk 2ish seems good for starters?
+# even topk 8ish seems to get decent variety.
+topk = 2
+
+print(tree.babble('   ', nchar, context, topk))
+print(tree.babble('   ', nchar, context, topk))
+print(tree.babble('   ', nchar, context, topk))
+print(tree.babble('   ', nchar, context, topk))
+print(tree.babble('   ', nchar, context, topk))
+print(tree.babble('   ', nchar, context, topk))
+print(tree.babble('   ', nchar, context, topk))
+print(tree.babble('   ', nchar, context, topk))
 
