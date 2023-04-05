@@ -1,30 +1,31 @@
-from collections import defaultdict
+from Vomm import Tree
 
-class TreeNode:
-    def __init__(self):
-        self.count = 0
-        self.children = []
-    def increment(self):
-        self.count += 1
-    def isLeaf(self):
-        return(len([]) == 0)
+dirname = "../gutenberg/"
+basename = "room_with_a_view"
+#dirname = "../codenet/"
+#basename = "cpp_raw"
+inname = "./" + dirname + basename + ".txt"
 
-class NodeSet:
-    def __init__(self):
-        self.nodes = defaultdict(lambda: TreeNode())
-    def update(self, id):
-        self.nodes[id].increment()
+stride = 5
 
-class Tree:
-    def __init__(self):
-        self.base = NodeSet()
+fid = open(inname, 'r')
 
-ns = NodeSet()
-ns.update(1)
-ns.update(2)
-ns.update(2)
-ns.update(2)
-ns.update(2)
-ns.update(4)
-ns.update(4)
-print(ns.nodes)
+dat = fid.readlines()
+
+tree = Tree()
+for i,line in enumerate(dat):
+    for indx in range(len(line)-stride):
+        tree.update(line[indx:(indx+stride)])
+
+#tree.print()
+print("tree.babble('zzz', 50, 4, topk = 2)")
+print(tree.babble('say', 50, 4, topk = 2))
+print(tree.babble('say', 50, 4, topk = 2))
+print(tree.babble('say', 50, 4, topk = 2))
+print(tree.babble('say', 50, 4, topk = 2))
+
+print("tree.babble('zzz', 50, 4, topk = 20)")
+print(tree.babble('say', 50, 4, topk = 20))
+print(tree.babble('say', 50, 4, topk = 20))
+print(tree.babble('say', 50, 4, topk = 20))
+print(tree.babble('say', 50, 4, topk = 20))
